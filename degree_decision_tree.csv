@@ -1,0 +1,57 @@
+QuestionID,Question,AnswerType,NextIfYes,NextIfNo,StreamSuggestion
+Q1,"Are you fascinated by solving mathematical or logical problems?",yesno,Q2,Q3,
+Q2,"Do you enjoy studying theoretical concepts like quantum mechanics or calculus?",yesno,Q7,Q3,
+Q3,"Are you interested in biological processes like cell functions or ecosystems?",yesno,Q8,Q4,
+Q4,"Do you like working with computers, programming, or data analysis?",yesno,Q9,Q5,
+Q5,"Are you passionate about healthcare or medical treatment?",yesno,Q10,Q6,
+Q6,"Do you enjoy learning about agriculture, plants, or animal sciences?",yesno,Q11,Q12,
+Q7,"Are you interested in studying atomic structures, mechanics, or astrophysics?",yesno,Q42,Q13,B.Sc. Physics
+Q8,"Are you curious about molecular biology, genetics, or microbes?",yesno,Q15,Q16,
+Q9,"Are you excited about coding or developing software applications?",yesno,Q45,Q17,B.Sc. Computer Science
+Q10,"Do you want to become a medical doctor or dentist?",yesno,Q48,Q18,MBBS
+Q11,"Are you interested in farming, crop science, or soil management?",yesno,Q51,Q19,B.Sc. Agriculture
+Q12,"Do you want to apply science to solve crimes, like analyzing evidence?",yesno,Q20,Q23,
+Q13,"Are you passionate about abstract mathematics, like algebra or number theory?",yesno,Q21,Q14,B.Sc. Mathematics
+Q14,"Do you enjoy conducting chemical experiments or studying reactions?",yesno,Q22,Q26,B.Sc. Chemistry
+Q15,"Are you interested in genetic engineering or biotech applications?",yesno,Q24,Q25,
+Q16,"Are you passionate about conservation or environmental sustainability?",yesno,Q27,Q28,B.Sc. Environmental Science
+Q17,"Are you interested in analyzing large datasets or artificial intelligence?",yesno,Q29,Q30,B.Sc. Data Science
+Q18,"Are you drawn to patient care roles like nursing or physiotherapy?",yesno,Q31,Q32,
+Q19,"Are you fascinated by forestry or aquatic ecosystems?",yesno,Q33,Q34,
+Q20,"Are you interested in forensic analysis or crime scene investigation?",yesno,Q41,Q23,B.Sc. Forensic Science
+Q21,"Do you enjoy solving complex equations or proofs?",yesno,Q41,Q41,B.Sc. Mathematics
+Q22,"Are you curious about chemical synthesis or material properties?",yesno,Q41,Q41,B.Sc. Chemistry
+Q23,"Are you interested in designing machines, circuits, or software systems?",yesno,Q54,Q41,B.E./B.Tech
+Q24,"Do you want to develop new biotechnologies or medical treatments?",yesno,Q41,Q35,B.Sc. Biotechnology
+Q25,"Are you fascinated by microorganisms or infectious diseases?",yesno,Q41,Q36,B.Sc. Microbiology
+Q26,"Are you interested in animal biology or wildlife?",yesno,Q37,Q38,
+Q27,"Do you want to work on climate change or ecological restoration?",yesno,Q41,Q41,B.Sc. Environmental Science
+Q28,"Are you curious about biochemical processes in living organisms?",yesno,Q41,Q39,B.Sc. Biochemistry
+Q29,"Do you enjoy working with big data or machine learning?",yesno,Q41,Q41,B.Sc. Data Science
+Q30,"Do you want to manage IT systems or cybersecurity?",yesno,Q41,Q41,B.Sc. Information Technology
+Q31,"Are you interested in nutrition or dietary health?",yesno,Q40,Q41,B.Sc. Nutrition & Dietetics
+Q32,"Are you drawn to alternative medicine like Ayurveda or homeopathy?",yesno,Q42,Q43,
+Q33,"Are you passionate about forest conservation or management?",yesno,Q41,Q44,B.Sc. Forestry
+Q34,"Are you interested in fisheries or aquatic biology?",yesno,Q41,Q41,B.Sc. Fisheries Science
+Q35,"Are you curious about genetic inheritance or DNA analysis?",yesno,Q41,Q41,B.Sc. Genetics
+Q36,"Are you interested in studying plant biology or botany?",yesno,Q41,Q41,B.Sc. Botany
+Q37,"Are you fascinated by zoology or animal behavior?",yesno,Q41,Q41,B.Sc. Zoology
+Q38,"Do you enjoy studying broad biological concepts?",yesno,Q41,Q41,B.Sc. Biology
+Q39,"Do you want to work on drug development or pharmacology?",yesno,Q41,Q41,B.Pharm
+Q40,"Are you interested in rehabilitation or physical therapy?",yesno,Q41,Q41,BPT
+Q41,"Please try the quiz again or consult a counselor for personalized guidance.",yesno,,,"No clear match"
+Q42,"Are you excited about exploring quantum mechanics or relativity?",yesno,Q43,Q43,
+Q43,"Do you enjoy conducting experiments on forces, optics, or electricity?",yesno,Q44,Q44,
+Q44,"Are you interested in a career in physics research or astrophysics?",yesno,Q41,Q41,B.Sc. Physics
+Q45,"Do you enjoy building software or mobile applications?",yesno,Q46,Q46,
+Q46,"Are you interested in algorithms or computer system design?",yesno,Q47,Q47,
+Q47,"Do you want a career in software development or IT consulting?",yesno,Q41,Q41,B.Sc. Computer Science
+Q48,"Are you prepared for a long medical degree with clinical training?",yesno,Q49,Q49,
+Q49,"Do you enjoy studying human anatomy or performing surgeries?",yesno,Q50,Q50,
+Q50,"Are you committed to a career as a doctor in hospitals or clinics?",yesno,Q41,Q41,MBBS
+Q51,"Do you enjoy working on crop improvement or sustainable farming?",yesno,Q52,Q52,
+Q52,"Are you interested in agricultural technology or soil science?",yesno,Q53,Q53,
+Q53,"Do you want a career in agribusiness or agricultural research?",yesno,Q41,Q41,B.Sc. Agriculture
+Q54,"Are you excited about designing robots, circuits, or structures?",yesno,Q55,Q55,
+Q55,"Do you enjoy hands-on engineering projects or prototyping?",yesno,Q56,Q56,
+Q56,"Are you interested in a career in engineering or technology innovation?",yesno,Q41,Q41,B.E./B.Tech
