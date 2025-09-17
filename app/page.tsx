@@ -7,9 +7,7 @@ import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Loader2, Navigation, Phone, Globe, MapPinIcon, ExternalLink } from "lucide-react"
 import {
-  BookOpen,
   Brain,
-  Microscope,
   Code,
   Heart,
   Leaf,
@@ -22,6 +20,16 @@ import {
   MapPin,
   DollarSign,
   Star,
+  ArrowLeft,
+  RotateCcw,
+  Briefcase,
+  Building,
+  BookOpen,
+  Award,
+  CheckCircle,
+  Palette,
+  Scale,
+  Sprout,
 } from "lucide-react"
 
 declare global {
@@ -365,177 +373,564 @@ const questionData = {
   },
 }
 
-const careerFields = [
-  {
-    icon: Calculator,
-    title: "Pure Sciences",
-    description: "Mathematics, Physics, Chemistry",
-    color: "bg-blue-100 text-blue-700",
-  },
-  {
-    icon: Microscope,
-    title: "Biological Sciences",
-    description: "Biology, Genetics, Microbiology",
-    color: "bg-green-100 text-green-700",
-  },
-  {
-    icon: Code,
-    title: "Computer Sciences",
-    description: "Programming, Data Science, AI",
-    color: "bg-purple-100 text-purple-700",
-  },
-  {
-    icon: Heart,
-    title: "Medical Sciences",
-    description: "Medicine, Nursing, Pharmacy",
-    color: "bg-red-100 text-red-700",
-  },
-  {
-    icon: Leaf,
-    title: "Agricultural Sciences",
-    description: "Agriculture, Forestry, Environment",
-    color: "bg-emerald-100 text-emerald-700",
-  },
-  {
-    icon: Wrench,
-    title: "Engineering",
-    description: "Mechanical, Civil, Electronics",
-    color: "bg-orange-100 text-orange-700",
-  },
-  {
-    icon: Brain,
-    title: "Applied Sciences",
-    description: "Forensics, Biotechnology",
-    color: "bg-indigo-100 text-indigo-700",
-  },
-  {
-    icon: BookOpen,
-    title: "Specialized Fields",
-    description: "Research, Academia, Innovation",
-    color: "bg-pink-100 text-pink-700",
-  },
-]
+const careerQuestionnaires = {
+  "Data Analyst": [
+    {
+      question: "Do you enjoy working with spreadsheets and organizing data?",
+      weight: 3,
+    },
+    {
+      question: "Are you comfortable with basic statistics and mathematics?",
+      weight: 3,
+    },
+    {
+      question: "Do you like creating charts and visualizations to tell stories with data?",
+      weight: 4,
+    },
+    {
+      question: "Are you interested in business intelligence and helping companies make decisions?",
+      weight: 4,
+    },
+    {
+      question: "Do you enjoy using tools like Excel, Power BI, or Tableau?",
+      weight: 3,
+    },
+    {
+      question: "Are you good at identifying patterns and trends in information?",
+      weight: 4,
+    },
+    {
+      question: "Do you prefer working with structured data and databases?",
+      weight: 3,
+    },
+    {
+      question: "Are you interested in SQL and database querying?",
+      weight: 3,
+    },
+    {
+      question: "Do you enjoy presenting findings to business stakeholders?",
+      weight: 3,
+    },
+    {
+      question: "Are you detail-oriented and enjoy ensuring data accuracy?",
+      weight: 4,
+    },
+  ],
+  "Data Scientist": [
+    {
+      question: "Do you have strong mathematical and statistical knowledge?",
+      weight: 4,
+    },
+    {
+      question: "Are you comfortable with programming languages like Python or R?",
+      weight: 4,
+    },
+    {
+      question: "Do you enjoy building predictive models and machine learning algorithms?",
+      weight: 4,
+    },
+    {
+      question: "Are you interested in extracting insights from complex, unstructured data?",
+      weight: 4,
+    },
+    {
+      question: "Do you like conducting experiments and hypothesis testing?",
+      weight: 3,
+    },
+    {
+      question: "Are you comfortable with advanced statistics and probability?",
+      weight: 4,
+    },
+    {
+      question: "Do you enjoy working on research-oriented projects?",
+      weight: 3,
+    },
+    {
+      question: "Are you interested in artificial intelligence and deep learning?",
+      weight: 3,
+    },
+    {
+      question: "Do you like working with big data and distributed computing?",
+      weight: 3,
+    },
+    {
+      question: "Are you passionate about solving complex business problems with data?",
+      weight: 4,
+    },
+  ],
+  "AI Engineer": [
+    {
+      question: "Do you have strong programming skills in Python, Java, or C++?",
+      weight: 4,
+    },
+    {
+      question: "Are you interested in machine learning algorithms and neural networks?",
+      weight: 4,
+    },
+    {
+      question: "Do you enjoy working with computer vision or natural language processing?",
+      weight: 3,
+    },
+    {
+      question: "Are you comfortable with software engineering and system design?",
+      weight: 4,
+    },
+    {
+      question: "Do you like building and deploying AI models in production?",
+      weight: 4,
+    },
+    {
+      question: "Are you interested in robotics and autonomous systems?",
+      weight: 3,
+    },
+    {
+      question: "Do you enjoy working with cloud platforms and MLOps?",
+      weight: 3,
+    },
+    {
+      question: "Are you passionate about cutting-edge AI research and development?",
+      weight: 4,
+    },
+    {
+      question: "Do you like optimizing algorithms for performance and scalability?",
+      weight: 3,
+    },
+    {
+      question: "Are you interested in ethical AI and responsible machine learning?",
+      weight: 3,
+    },
+  ],
+}
 
-const degreeInfo = {
-  "B.Sc. Physics": {
-    duration: "3-4 years",
-    difficulty: "High",
-    careerProspects: "Excellent",
-    averageSalary: "$65,000 - $120,000",
+const careerRoadmaps = {
+  "Data Analyst": {
+    duration: "3-6 Months",
     description:
-      "Physics explores the fundamental laws governing the universe, from subatomic particles to cosmic phenomena.",
-    careerPaths: ["Research Scientist", "Data Analyst", "Engineering Physicist", "Astrophysicist", "Medical Physicist"],
-    skills: ["Mathematical modeling", "Problem-solving", "Laboratory techniques", "Data analysis", "Critical thinking"],
-    industries: ["Research & Development", "Technology", "Healthcare", "Energy", "Aerospace"],
-    topUniversities: ["MIT", "Stanford", "Harvard", "Caltech", "Princeton"],
+      "Data Analysts transform raw data into actionable business insights through visualization, statistical analysis, and reporting. They bridge the gap between raw data and business decision-making.",
+    keySkills: ["Excel", "SQL", "Power BI/Tableau", "Statistics", "Python/Pandas", "Business Intelligence"],
+    careerPaths: [
+      "Business Analyst",
+      "Data Analyst",
+      "BI Developer",
+      "Marketing Analyst",
+      "Financial Analyst",
+      "Operations Analyst",
+      "Product Analyst",
+    ],
+    averageSalary: "$45,000 - $95,000",
+    industryDemand: "High - Growing 25% faster than average",
+    workEnvironment: "Office/Remote - Collaborative with business teams",
+    dailyTasks: [
+      "Create dashboards and reports",
+      "Analyze business metrics and KPIs",
+      "Present insights to stakeholders",
+      "Clean and prepare data for analysis",
+      "Identify trends and patterns in data",
+    ],
+    industryApplications: [
+      "E-commerce: Customer behavior analysis",
+      "Finance: Risk assessment and fraud detection",
+      "Healthcare: Patient outcome analysis",
+      "Marketing: Campaign performance optimization",
+      "Supply Chain: Inventory and logistics optimization",
+    ],
+    learningResources: {
+      free: [
+        "Codebasics YouTube Channel",
+        "Khan Academy Statistics",
+        "Microsoft Learn (Power BI)",
+        "W3Schools SQL Tutorial",
+        "Kaggle Learn",
+      ],
+      paid: ["Codebasics Data Analyst Bootcamp", "Power BI Data Analysis Course", "SQL for Data Professionals"],
+    },
+    certifications: [
+      "Microsoft PL-300 (Power BI Data Analyst)",
+      "Tableau Desktop Specialist",
+      "Google Data Analytics Certificate",
+      "Microsoft Excel Expert",
+    ],
+    roadmap: {
+      weeks: [
+        {
+          title: "Week 0: Foundation & Research",
+          topics: ["Market research", "Scam awareness", "Mind & body preparation", "Career suitability test"],
+          deliverables: ["Research report", "Learning plan", "LinkedIn profile setup"],
+        },
+        {
+          title: "Week 1-2: Excel & Business Math",
+          topics: [
+            "Basic & Advanced Excel formulas",
+            "Pivot Tables & Power Query",
+            "Business statistics & percentages",
+            "YoY growth calculations",
+            "Market share analysis",
+          ],
+          deliverables: ["Personal budget tracker", "Business math exercises", "Excel project portfolio"],
+        },
+        {
+          title: "Week 3-5: BI Tools & Domain Knowledge",
+          topics: [
+            "Power BI/Tableau fundamentals",
+            "Data modeling & DAX",
+            "Dashboard design principles",
+            "Business domains (Finance, Marketing, Operations)",
+            "P&L statement analysis",
+          ],
+          deliverables: ["Sales insights dashboard", "Hospitality analytics project", "Domain knowledge summary"],
+        },
+        {
+          title: "Week 6-8: SQL & Portfolio Development",
+          topics: [
+            "Database fundamentals",
+            "Complex queries & joins",
+            "Window functions",
+            "ATS resume creation",
+            "Portfolio website",
+          ],
+          deliverables: ["SQL resume project", "Professional portfolio", "GitHub repository"],
+        },
+        {
+          title: "Week 9-10: Python & Advanced Analytics",
+          topics: [
+            "Python basics",
+            "Pandas for data analysis",
+            "Data visualization",
+            "AI tools integration",
+            "Statistical analysis",
+          ],
+          deliverables: ["Python data analysis project", "Automated reporting system"],
+        },
+        {
+          title: "Week 11-12: Interview Preparation & Job Search",
+          topics: [
+            "Technical interview prep",
+            "Case study practice",
+            "Presentation skills",
+            "Job application strategy",
+            "Networking",
+          ],
+          deliverables: ["Mock interview completion", "Job applications", "Professional network expansion"],
+        },
+      ],
+      projects: [
+        "Personal Finance Dashboard with Excel",
+        "Sales Performance Analytics with Power BI",
+        "Customer Segmentation Analysis with SQL",
+        "Marketing Campaign ROI Analysis",
+        "Supply Chain Optimization Dashboard",
+      ],
+    },
   },
-  "B.Sc. Computer Science": {
-    duration: "3-4 years",
-    difficulty: "Medium-High",
-    careerProspects: "Excellent",
+  "Data Scientist": {
+    duration: "6 Months",
+    description:
+      "Data Scientists use advanced analytics, machine learning, and statistical methods to solve complex business problems and predict future trends. They combine domain expertise with programming skills to extract insights from large datasets.",
+    keySkills: [
+      "Python/R",
+      "Machine Learning",
+      "Statistics",
+      "SQL",
+      "Deep Learning",
+      "Data Visualization",
+      "A/B Testing",
+    ],
+    careerPaths: [
+      "Data Scientist",
+      "ML Engineer",
+      "Research Scientist",
+      "AI Consultant",
+      "Product Data Scientist",
+      "Quantitative Analyst",
+      "Data Science Manager",
+    ],
     averageSalary: "$70,000 - $150,000",
-    description:
-      "Computer Science combines mathematical rigor with creative problem-solving to develop software solutions and advance technology.",
-    careerPaths: ["Software Engineer", "Data Scientist", "AI/ML Engineer", "Cybersecurity Analyst", "Product Manager"],
-    skills: ["Programming", "Algorithm design", "System architecture", "Database management", "Software testing"],
-    industries: ["Technology", "Finance", "Healthcare", "Gaming", "E-commerce"],
-    topUniversities: ["MIT", "Stanford", "Carnegie Mellon", "UC Berkeley", "Georgia Tech"],
+    industryDemand: "Very High - Fastest growing tech role",
+    workEnvironment: "Tech companies, startups, research labs",
+    dailyTasks: [
+      "Build predictive models and algorithms",
+      "Conduct statistical analysis and hypothesis testing",
+      "Design and analyze A/B tests",
+      "Collaborate with engineering teams",
+      "Present findings to executive leadership",
+    ],
+    industryApplications: [
+      "Tech: Recommendation systems and user behavior",
+      "Finance: Algorithmic trading and risk modeling",
+      "Healthcare: Drug discovery and diagnostic tools",
+      "Retail: Demand forecasting and pricing optimization",
+      "Transportation: Route optimization and autonomous systems",
+    ],
+    learningResources: {
+      free: [
+        "Codebasics Machine Learning Playlist",
+        "StatQuest YouTube Channel",
+        "Kaggle Learn & Competitions",
+        "Khan Academy Statistics",
+        "3Blue1Brown Linear Algebra",
+      ],
+      paid: [
+        "Codebasics Data Science Bootcamp",
+        "Machine Learning for Data Science Course",
+        "Deep Learning Specialization",
+      ],
+    },
+    certifications: [
+      "Google Professional Data Scientist",
+      "IBM Data Science Professional Certificate",
+      "Microsoft Azure Data Scientist Associate",
+      "AWS Certified Machine Learning",
+    ],
+    roadmap: {
+      weeks: [
+        {
+          title: "Week 0: Research & Foundation",
+          topics: ["Industry research", "Scam awareness", "Career planning", "Learning path selection"],
+          deliverables: ["Career research report", "Learning strategy", "Professional profile setup"],
+        },
+        {
+          title: "Week 1-2: Python Programming",
+          topics: ["Python fundamentals", "Data structures", "Object-oriented programming", "Libraries ecosystem"],
+          deliverables: ["Python programming exercises", "Mini projects", "Code portfolio"],
+        },
+        {
+          title: "Week 3: Data Science Libraries",
+          topics: [
+            "NumPy for numerical computing",
+            "Pandas for data manipulation",
+            "Matplotlib & Seaborn visualization",
+            "Jupyter notebooks",
+          ],
+          deliverables: ["Data analysis notebooks", "Visualization portfolio"],
+        },
+        {
+          title: "Week 4-7: Statistics & Mathematics",
+          topics: [
+            "Descriptive & inferential statistics",
+            "Probability distributions",
+            "Hypothesis testing",
+            "Bayesian thinking",
+            "Linear algebra basics",
+          ],
+          deliverables: ["Statistical analysis projects", "Math foundations assessment"],
+        },
+        {
+          title: "Week 8: Exploratory Data Analysis",
+          topics: [
+            "Data cleaning techniques",
+            "Pattern recognition",
+            "Statistical storytelling",
+            "Kaggle competitions",
+          ],
+          deliverables: ["EDA projects on multiple datasets", "Kaggle submissions"],
+        },
+        {
+          title: "Week 9-10: SQL & Database Management",
+          topics: ["Advanced SQL queries", "Database optimization", "Data warehousing concepts", "ETL processes"],
+          deliverables: ["SQL portfolio projects", "Database design project"],
+        },
+        {
+          title: "Week 11-15: Machine Learning",
+          topics: [
+            "Supervised learning algorithms",
+            "Unsupervised learning",
+            "Model evaluation & selection",
+            "Feature engineering",
+            "Cross-validation",
+          ],
+          deliverables: ["ML model portfolio", "Kaggle competition entries", "Research paper reviews"],
+        },
+        {
+          title: "Week 16-18: Advanced ML & Deployment",
+          topics: ["Ensemble methods", "Model deployment", "MLOps basics", "API development", "Cloud platforms"],
+          deliverables: ["Deployed ML applications", "End-to-end ML pipeline"],
+        },
+        {
+          title: "Week 19-21: Deep Learning",
+          topics: ["Neural network fundamentals", "CNN for computer vision", "RNN for sequences", "Transfer learning"],
+          deliverables: ["Deep learning projects", "Computer vision applications"],
+        },
+        {
+          title: "Week 22-24: Specialization & Portfolio",
+          topics: [
+            "NLP or Computer Vision specialization",
+            "Advanced projects",
+            "Research methodologies",
+            "Industry case studies",
+          ],
+          deliverables: ["Specialized project portfolio", "Technical blog posts", "Professional presentations"],
+        },
+      ],
+      projects: [
+        "Customer Churn Prediction Model",
+        "Recommendation System for E-commerce",
+        "Time Series Forecasting for Sales",
+        "Computer Vision for Medical Diagnosis",
+        "Natural Language Processing for Sentiment Analysis",
+        "A/B Testing Framework Development",
+      ],
+    },
   },
-  MBBS: {
-    duration: "5.5-6 years",
-    difficulty: "Very High",
-    careerProspects: "Excellent",
-    averageSalary: "$200,000 - $400,000",
+  "AI Engineer": {
+    duration: "8 Months",
     description:
-      "Medicine is a noble profession focused on diagnosing, treating, and preventing human diseases and injuries.",
-    careerPaths: ["General Practitioner", "Specialist Doctor", "Surgeon", "Researcher", "Public Health Officer"],
-    skills: ["Clinical diagnosis", "Patient care", "Medical procedures", "Communication", "Empathy"],
-    industries: ["Healthcare", "Hospitals", "Research", "Public Health", "Pharmaceuticals"],
-    topUniversities: ["Harvard Medical", "Johns Hopkins", "UCSF", "Mayo Clinic", "Stanford Medicine"],
-  },
-  "B.Sc. Agriculture": {
-    duration: "4 years",
-    difficulty: "Medium",
-    careerProspects: "Good",
-    averageSalary: "$45,000 - $85,000",
-    description:
-      "Agriculture science focuses on sustainable food production, crop management, and agricultural innovation.",
+      "AI Engineers combine data science expertise with software engineering skills to build, deploy, and maintain AI systems at scale. They focus on productionizing machine learning models and creating robust AI infrastructure.",
+    keySkills: [
+      "Python/Java/C++",
+      "Machine Learning",
+      "Software Engineering",
+      "MLOps",
+      "Cloud Platforms",
+      "System Design",
+      "DevOps",
+    ],
     careerPaths: [
-      "Agricultural Scientist",
-      "Farm Manager",
-      "Agricultural Consultant",
-      "Food Technologist",
-      "Extension Officer",
+      "AI Engineer",
+      "ML Engineer",
+      "AI Architect",
+      "Robotics Engineer",
+      "AI Research Engineer",
+      "Platform Engineer",
+      "AI Product Manager",
     ],
-    skills: ["Crop science", "Soil management", "Pest control", "Agricultural technology", "Sustainability practices"],
-    industries: ["Agriculture", "Food Processing", "Biotechnology", "Government", "Research"],
-    topUniversities: ["UC Davis", "Cornell", "Iowa State", "Texas A&M", "Purdue"],
-  },
-  "B.Sc. Mathematics": {
-    duration: "3-4 years",
-    difficulty: "High",
-    careerProspects: "Very Good",
-    averageSalary: "$60,000 - $130,000",
-    description:
-      "Mathematics provides the foundation for logical reasoning and quantitative analysis across all sciences.",
-    careerPaths: ["Data Analyst", "Actuary", "Financial Analyst", "Research Mathematician", "Statistics Consultant"],
-    skills: [
-      "Abstract thinking",
-      "Logical reasoning",
-      "Statistical analysis",
-      "Mathematical modeling",
-      "Problem-solving",
+    averageSalary: "$80,000 - $180,000",
+    industryDemand: "Extremely High - Critical for AI transformation",
+    workEnvironment: "Tech giants, AI startups, research institutions",
+    dailyTasks: [
+      "Design and implement ML pipelines",
+      "Optimize model performance and scalability",
+      "Build AI-powered applications and APIs",
+      "Manage ML infrastructure and deployment",
+      "Collaborate with research and product teams",
     ],
-    industries: ["Finance", "Insurance", "Technology", "Research", "Education"],
-    topUniversities: ["MIT", "Harvard", "Princeton", "Stanford", "Cambridge"],
-  },
-  "B.Sc. Chemistry": {
-    duration: "3-4 years",
-    difficulty: "Medium-High",
-    careerProspects: "Good",
-    averageSalary: "$50,000 - $95,000",
-    description:
-      "Chemistry studies matter, its properties, composition, and the changes it undergoes during chemical reactions.",
-    careerPaths: [
-      "Research Chemist",
-      "Quality Control Analyst",
-      "Pharmaceutical Scientist",
-      "Environmental Chemist",
-      "Materials Scientist",
+    industryApplications: [
+      "Autonomous Vehicles: Self-driving car systems",
+      "Robotics: Industrial automation and service robots",
+      "Healthcare: AI-powered diagnostic tools",
+      "Finance: Algorithmic trading and fraud detection",
+      "Gaming: AI opponents and procedural generation",
+      "Smart Cities: Traffic optimization and resource management",
     ],
-    skills: [
-      "Laboratory techniques",
-      "Chemical analysis",
-      "Research methodology",
-      "Safety protocols",
-      "Data interpretation",
+    learningResources: {
+      free: [
+        "Codebasics AI/ML Playlists",
+        "Fast.ai Practical Deep Learning",
+        "CS231n Stanford Course",
+        "MIT OpenCourseWare AI",
+        "Papers With Code",
+      ],
+      paid: [
+        "Codebasics AI Bootcamp",
+        "Deep Learning Specialization",
+        "MLOps Engineering Course",
+        "System Design for ML",
+      ],
+    },
+    certifications: [
+      "Google Professional ML Engineer",
+      "AWS Certified Machine Learning",
+      "Microsoft Azure AI Engineer",
+      "NVIDIA Deep Learning Institute",
+      "Kubernetes Application Developer",
     ],
-    industries: ["Pharmaceuticals", "Chemical Manufacturing", "Environmental", "Materials", "Food & Beverage"],
-    topUniversities: ["MIT", "Caltech", "Harvard", "Stanford", "UC Berkeley"],
-  },
-  "B.E./B.Tech": {
-    duration: "4 years",
-    difficulty: "Medium-High",
-    careerProspects: "Excellent",
-    averageSalary: "$65,000 - $140,000",
-    description:
-      "Engineering applies scientific and mathematical principles to design, build, and maintain structures, machines, and systems.",
-    careerPaths: ["Design Engineer", "Project Manager", "Systems Engineer", "R&D Engineer", "Technical Consultant"],
-    skills: ["Technical design", "Problem-solving", "Project management", "CAD software", "Systems thinking"],
-    industries: ["Manufacturing", "Construction", "Technology", "Automotive", "Aerospace"],
-    topUniversities: ["MIT", "Stanford", "Caltech", "Georgia Tech", "Carnegie Mellon"],
-  },
-  "B.Sc. Data Science": {
-    duration: "3-4 years",
-    difficulty: "Medium-High",
-    careerProspects: "Excellent",
-    averageSalary: "$75,000 - $160,000",
-    description:
-      "Data Science combines statistics, programming, and domain expertise to extract insights from complex datasets.",
-    careerPaths: ["Data Scientist", "Machine Learning Engineer", "Business Analyst", "Data Engineer", "AI Researcher"],
-    skills: ["Statistical analysis", "Programming", "Machine learning", "Data visualization", "Business intelligence"],
-    industries: ["Technology", "Finance", "Healthcare", "E-commerce", "Consulting"],
-    topUniversities: ["MIT", "Stanford", "Carnegie Mellon", "UC Berkeley", "Harvard"],
+    roadmap: {
+      weeks: [
+        {
+          title: "Week 0: Research & Career Planning",
+          topics: ["AI industry landscape", "Scam awareness", "Career trajectory planning", "Skill gap analysis"],
+          deliverables: ["Industry research report", "Personal development plan"],
+        },
+        {
+          title: "Week 1-2: Computer Science Fundamentals",
+          topics: [
+            "Data structures & algorithms",
+            "Computer systems",
+            "Network protocols",
+            "Software engineering principles",
+          ],
+          deliverables: ["CS fundamentals assessment", "Programming challenges"],
+        },
+        {
+          title: "Week 3-4: Advanced Python Programming",
+          topics: ["Object-oriented design", "Design patterns", "Concurrent programming", "Code optimization"],
+          deliverables: ["Advanced Python projects", "Code review portfolio"],
+        },
+        {
+          title: "Week 5-6: Data Structures & Algorithms",
+          topics: ["Algorithm complexity", "Advanced data structures", "Graph algorithms", "Dynamic programming"],
+          deliverables: ["Algorithm implementation portfolio", "Coding interview preparation"],
+        },
+        {
+          title: "Week 7-8: Software Engineering Practices",
+          topics: ["Version control mastery", "Testing frameworks", "Code documentation", "Agile methodologies"],
+          deliverables: ["Open source contributions", "Software project portfolio"],
+        },
+        {
+          title: "Week 9: DevOps & Infrastructure",
+          topics: ["Git workflows", "CI/CD pipelines", "Containerization", "Infrastructure as code"],
+          deliverables: ["DevOps project setup", "Automated deployment pipeline"],
+        },
+        {
+          title: "Week 10-11: Database Systems",
+          topics: ["Database design", "Query optimization", "NoSQL databases", "Data warehousing"],
+          deliverables: ["Database projects", "Performance optimization case studies"],
+        },
+        {
+          title: "Week 12: Data Science Foundation",
+          topics: ["Statistical computing", "Data visualization", "Exploratory analysis", "Scientific computing"],
+          deliverables: ["Data science toolkit", "Analysis projects"],
+        },
+        {
+          title: "Week 13-16: Mathematics for AI",
+          topics: ["Linear algebra", "Calculus", "Probability theory", "Optimization methods", "Information theory"],
+          deliverables: ["Mathematical foundations portfolio", "Algorithm implementations"],
+        },
+        {
+          title: "Week 17: Advanced Data Analysis",
+          topics: ["Feature engineering", "Dimensionality reduction", "Time series analysis", "Causal inference"],
+          deliverables: ["Advanced analytics projects", "Research implementations"],
+        },
+        {
+          title: "Week 18-21: Machine Learning Engineering",
+          topics: ["ML algorithms", "Model selection", "Hyperparameter optimization", "Ensemble methods", "AutoML"],
+          deliverables: ["ML engineering projects", "Model comparison studies"],
+        },
+        {
+          title: "Week 22: MLOps & Production Systems",
+          topics: ["Model deployment", "Monitoring & logging", "A/B testing", "Model versioning", "Scalability"],
+          deliverables: ["Production ML system", "MLOps pipeline"],
+        },
+        {
+          title: "Week 23-24: End-to-End ML Projects",
+          topics: ["Project architecture", "System integration", "Performance optimization", "User interface design"],
+          deliverables: ["Complete ML applications", "Technical documentation"],
+        },
+        {
+          title: "Week 25-27: Deep Learning & Neural Networks",
+          topics: ["Neural architectures", "Training optimization", "Transfer learning", "Model compression"],
+          deliverables: ["Deep learning applications", "Research implementations"],
+        },
+        {
+          title: "Week 28-30: AI Specialization",
+          topics: ["Computer vision", "Natural language processing", "Reinforcement learning", "Generative AI"],
+          deliverables: ["Specialized AI applications", "Research contributions"],
+        },
+        {
+          title: "Week 31-32: Advanced AI Systems",
+          topics: ["Large language models", "Vector databases", "RAG systems", "AI agents", "Multimodal AI"],
+          deliverables: ["Advanced AI systems", "Innovation projects"],
+        },
+      ],
+      projects: [
+        "Scalable Image Classification System",
+        "Real-time Recommendation Engine",
+        "Autonomous Drone Navigation System",
+        "Conversational AI Chatbot with RAG",
+        "Computer Vision for Quality Control",
+        "Distributed ML Training Pipeline",
+        "AI-Powered Code Generation Tool",
+      ],
+    },
   },
 }
 
@@ -549,13 +944,193 @@ interface College {
   courses?: string[]
 }
 
+const careerFields = [
+  {
+    title: "Data Science",
+    description: "Uncover insights from data and build predictive models.",
+    icon: Brain,
+    color: "bg-gradient-to-r from-blue-400 to-purple-500 text-white",
+  },
+  {
+    title: "Engineering",
+    description: "Design and build innovative solutions to real-world problems.",
+    icon: Wrench,
+    color: "bg-gradient-to-r from-green-400 to-blue-500 text-white",
+  },
+  {
+    title: "Healthcare",
+    description: "Provide care and improve the well-being of individuals and communities.",
+    icon: Heart,
+    color: "bg-gradient-to-r from-red-400 to-pink-500 text-white",
+  },
+  {
+    title: "Environmental Science",
+    description: "Protect and preserve our planet through sustainable practices.",
+    icon: Leaf,
+    color: "bg-gradient-to-r from-green-400 to-teal-500 text-white",
+  },
+  {
+    title: "Business & Finance",
+    description: "Drive economic growth and manage financial strategies.",
+    icon: TrendingUp,
+    color: "bg-gradient-to-r from-yellow-400 to-orange-500 text-white",
+  },
+  {
+    title: "Computer Science",
+    description: "Create software solutions and advance technology innovation.",
+    icon: Code,
+    color: "bg-gradient-to-r from-indigo-400 to-purple-500 text-white",
+  },
+  {
+    title: "Creative Arts",
+    description: "Express creativity through design, media, and artistic endeavors.",
+    icon: Palette,
+    color: "bg-gradient-to-r from-pink-400 to-rose-500 text-white",
+  },
+  {
+    title: "Education",
+    description: "Shape minds and inspire the next generation of learners.",
+    icon: GraduationCap,
+    color: "bg-gradient-to-r from-cyan-400 to-blue-500 text-white",
+  },
+  {
+    title: "Psychology",
+    description: "Understand human behavior and mental processes.",
+    icon: Users,
+    color: "bg-gradient-to-r from-violet-400 to-purple-500 text-white",
+  },
+  {
+    title: "Law & Justice",
+    description: "Uphold justice and navigate complex legal systems.",
+    icon: Scale,
+    color: "bg-gradient-to-r from-slate-400 to-gray-600 text-white",
+  },
+  {
+    title: "Agriculture",
+    description: "Innovate in food production and sustainable farming practices.",
+    icon: Sprout,
+    color: "bg-gradient-to-r from-lime-400 to-green-500 text-white",
+  },
+  {
+    title: "Architecture",
+    description: "Design spaces that shape how people live and work.",
+    icon: Building,
+    color: "bg-gradient-to-r from-amber-400 to-yellow-500 text-white",
+  },
+]
+
+const degreeInfo = {
+  "B.Sc. Physics": {
+    description:
+      "A degree in Physics explores the fundamental laws of the universe, from subatomic particles to galaxies.",
+    duration: "3 Years",
+    careerProspects: "High demand in research, technology, and education sectors.",
+    difficulty: "Challenging, requires strong analytical and mathematical skills.",
+    averageSalary: "$60,000 - $120,000",
+    careerPaths: ["Research Scientist", "Data Analyst", "Software Developer", "Academic"],
+    skills: ["Analytical Skills", "Problem-Solving", "Mathematical Modeling", "Critical Thinking"],
+    industries: ["Technology", "Aerospace", "Academia", "Research"],
+    topUniversities: ["MIT", "Stanford", "Cambridge", "Oxford"],
+  },
+  "B.Sc. Computer Science": {
+    description:
+      "A degree in Computer Science focuses on the theory and practice of computation and information processing.",
+    duration: "3 Years",
+    careerProspects: "Excellent, with high demand in virtually every industry.",
+    difficulty: "Moderate to challenging, requires logical thinking and problem-solving.",
+    averageSalary: "$70,000 - $150,000",
+    careerPaths: ["Software Engineer", "Data Scientist", "Web Developer", "IT Consultant"],
+    skills: ["Programming", "Data Analysis", "Algorithm Design", "Software Development"],
+    industries: ["Technology", "Finance", "Healthcare", "Education"],
+    topUniversities: ["MIT", "Stanford", "Carnegie Mellon", "UC Berkeley"],
+  },
+  MBBS: {
+    description:
+      "A Bachelor of Medicine and Bachelor of Surgery (MBBS) degree prepares you to become a medical doctor.",
+    duration: "5.5 Years",
+    careerProspects: "Very high, with opportunities worldwide.",
+    difficulty: "Very challenging, requires dedication and long hours of study.",
+    averageSalary: "$80,000 - $200,000+",
+    careerPaths: ["General Practitioner", "Specialist Doctor", "Surgeon", "Medical Researcher"],
+    skills: ["Clinical Skills", "Diagnostic Abilities", "Empathy", "Communication"],
+    industries: ["Healthcare", "Research", "Academia", "Public Health"],
+    topUniversities: ["Harvard", "Johns Hopkins", "Oxford", "Cambridge"],
+  },
+  "B.Sc. Agriculture": {
+    description:
+      "A degree in Agriculture focuses on the science, business, and technology of farming and food production.",
+    duration: "4 Years",
+    careerProspects: "Good, with increasing demand for sustainable agriculture practices.",
+    difficulty: "Moderate, requires a blend of scientific and practical knowledge.",
+    averageSalary: "$50,000 - $100,000",
+    careerPaths: ["Agronomist", "Farm Manager", "Agricultural Consultant", "Researcher"],
+    skills: ["Crop Management", "Soil Science", "Business Acumen", "Environmental Awareness"],
+    industries: ["Agriculture", "Food Production", "Environmental Conservation", "Research"],
+    topUniversities: ["Wageningen", "UC Davis", "Cornell", "Reading"],
+  },
+  "B.Sc. Mathematics": {
+    description:
+      "A degree in Mathematics develops strong analytical and problem-solving skills applicable to many fields.",
+    duration: "3 Years",
+    careerProspects: "Good, with opportunities in finance, technology, and education.",
+    difficulty: "Challenging, requires abstract thinking and logical reasoning.",
+    averageSalary: "$60,000 - $130,000",
+    careerPaths: ["Data Scientist", "Actuary", "Statistician", "Financial Analyst"],
+    skills: ["Analytical Skills", "Problem-Solving", "Logical Reasoning", "Mathematical Modeling"],
+    industries: ["Finance", "Technology", "Insurance", "Academia"],
+    topUniversities: ["MIT", "Harvard", "Cambridge", "Oxford"],
+  },
+  "B.Sc. Chemistry": {
+    description: "A degree in Chemistry explores the composition, structure, properties, and reactions of matter.",
+    duration: "3 Years",
+    careerProspects: "Good, with opportunities in pharmaceuticals, materials science, and environmental science.",
+    difficulty: "Moderate to challenging, requires experimental skills and attention to detail.",
+    averageSalary: "$55,000 - $110,000",
+    careerPaths: ["Chemist", "Pharmacist", "Materials Scientist", "Environmental Scientist"],
+    skills: ["Experimental Skills", "Analytical Skills", "Problem-Solving", "Attention to Detail"],
+    industries: ["Pharmaceuticals", "Chemical Manufacturing", "Environmental Science", "Research"],
+    topUniversities: ["MIT", "Stanford", "Cambridge", "Oxford"],
+  },
+  "B.E./B.Tech": {
+    description:
+      "A Bachelor of Engineering/Technology provides a foundation in engineering principles and practical skills.",
+    duration: "4 Years",
+    careerProspects: "Excellent, with diverse opportunities across various engineering disciplines.",
+    difficulty: "Challenging, requires strong mathematical and problem-solving abilities.",
+    averageSalary: "$65,000 - $140,000",
+    careerPaths: ["Software Engineer", "Mechanical Engineer", "Electrical Engineer", "Civil Engineer"],
+    skills: ["Problem-Solving", "Technical Skills", "Design", "Project Management"],
+    industries: ["Technology", "Manufacturing", "Construction", "Energy"],
+    topUniversities: ["MIT", "Stanford", "UC Berkeley", "Cambridge"],
+  },
+  "B.Sc. Data Science": {
+    description:
+      "A degree in Data Science combines statistics, computer science, and business knowledge to analyze and interpret data.",
+    duration: "3 Years",
+    careerProspects: "Excellent, with high demand in almost every industry.",
+    difficulty: "Moderate to challenging, requires analytical and programming skills.",
+    averageSalary: "$75,000 - $160,000",
+    careerPaths: ["Data Scientist", "Data Analyst", "Machine Learning Engineer", "Business Intelligence Analyst"],
+    skills: ["Data Analysis", "Machine Learning", "Programming", "Statistical Analysis"],
+    industries: ["Technology", "Finance", "Healthcare", "Marketing"],
+    topUniversities: ["Stanford", "Carnegie Mellon", "UC Berkeley", "MIT"],
+  },
+}
+
 export default function EduAdvisor() {
-  const [currentScreen, setCurrentScreen] = useState<"welcome" | "quiz" | "result" | "colleges">("welcome")
+  const [currentScreen, setCurrentScreen] = useState<
+    "welcome" | "quiz" | "result" | "colleges" | "career-selection" | "career-quiz" | "career-roadmap"
+  >("welcome")
   const [currentQuestion, setCurrentQuestion] = useState("Q1")
   const [questionCount, setQuestionCount] = useState(0)
   const [result, setResult] = useState("")
   const [confirmationCount, setConfirmationCount] = useState(0)
   const [confirmationDegree, setConfirmationDegree] = useState("")
+
+  const [selectedCareer, setSelectedCareer] = useState<"Data Analyst" | "Data Scientist" | "AI Engineer" | "">("")
+  const [careerQuestionIndex, setCareerQuestionIndex] = useState(0)
+  const [careerAnswers, setCareerAnswers] = useState<boolean[]>([])
+  const [careerScore, setCareerScore] = useState(0)
 
   const [colleges, setColleges] = useState<College[]>([])
   const [isLoadingColleges, setIsLoadingColleges] = useState(false)
@@ -575,7 +1150,11 @@ export default function EduAdvisor() {
     // If we have a confirmation, show result
     if (confirmationDegree && confirmationCount >= 1) {
       setResult(confirmationDegree)
-      setCurrentScreen("result")
+      if (confirmationDegree === "B.E./B.Tech") {
+        setCurrentScreen("career-selection")
+      } else {
+        setCurrentScreen("result")
+      }
       return
     }
 
@@ -592,6 +1171,33 @@ export default function EduAdvisor() {
     setQuestionCount((prev) => prev + 1)
   }
 
+  const handleCareerSelection = (career: "Data Analyst" | "Data Scientist" | "AI Engineer") => {
+    setSelectedCareer(career)
+    setCareerQuestionIndex(0)
+    setCareerAnswers([])
+    setCareerScore(0)
+    setCurrentScreen("career-quiz")
+  }
+
+  const handleCareerAnswer = (answer: boolean) => {
+    const questions = careerQuestionnaires[selectedCareer]
+    const currentQ = questions[careerQuestionIndex]
+
+    const newAnswers = [...careerAnswers, answer]
+    setCareerAnswers(newAnswers)
+
+    if (answer) {
+      setCareerScore((prev) => prev + currentQ.weight)
+    }
+
+    if (careerQuestionIndex < questions.length - 1) {
+      setCareerQuestionIndex((prev) => prev + 1)
+    } else {
+      // Quiz completed, show roadmap
+      setCurrentScreen("career-roadmap")
+    }
+  }
+
   const resetQuiz = () => {
     setCurrentScreen("welcome")
     setCurrentQuestion("Q1")
@@ -599,6 +1205,10 @@ export default function EduAdvisor() {
     setResult("")
     setConfirmationCount(0)
     setConfirmationDegree("")
+    setSelectedCareer("")
+    setCareerQuestionIndex(0)
+    setCareerAnswers([])
+    setCareerScore(0)
   }
 
   const startQuiz = () => {
@@ -760,6 +1370,448 @@ export default function EduAdvisor() {
     return courseMap[degree] || ["General Sciences", "Applied Sciences"]
   }
 
+  if (currentScreen === "career-selection") {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background">
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-4xl mx-auto">
+            <Card className="border-2 border-primary/20 shadow-lg mb-8 animate-in fade-in-0 slide-in-from-bottom-8 duration-1000">
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 animate-in zoom-in-0 duration-700 delay-200">
+                  <Code className="w-10 h-10 text-primary-foreground" />
+                </div>
+                <CardTitle className="text-3xl mb-2 animate-in fade-in-0 duration-500 delay-400">
+                  Engineering Career Specialization
+                </CardTitle>
+                <CardDescription className="text-lg text-balance animate-in fade-in-0 duration-500 delay-600">
+                  Since you're interested in B.E./B.Tech, let's find your perfect tech specialization
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  {(["Data Analyst", "Data Scientist", "AI Engineer"] as const).map((career, index) => (
+                    <Card
+                      key={career}
+                      className="group cursor-pointer hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/40 animate-in fade-in-0 slide-in-from-bottom-4 duration-700"
+                      style={{ animationDelay: `${(index + 1) * 200}ms` }}
+                      onClick={() => handleCareerSelection(career)}
+                    >
+                      <CardContent className="p-6 text-center">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+                          {career === "Data Analyst" && <Calculator className="w-8 h-8 text-white" />}
+                          {career === "Data Scientist" && <Brain className="w-8 h-8 text-white" />}
+                          {career === "AI Engineer" && <Code className="w-8 h-8 text-white" />}
+                        </div>
+                        <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors duration-300">
+                          {career}
+                        </h3>
+                        <p className="text-sm text-muted-foreground text-balance mb-4">
+                          {career === "Data Analyst" &&
+                            "Transform data into business insights through visualization and analysis"}
+                          {career === "Data Scientist" &&
+                            "Build predictive models and extract insights from complex data"}
+                          {career === "AI Engineer" && "Develop and deploy AI systems and machine learning solutions"}
+                        </p>
+                        <Badge
+                          variant="secondary"
+                          className="group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
+                        >
+                          Take Assessment
+                        </Badge>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                <div className="text-center">
+                  <Button onClick={() => setCurrentScreen("result")} variant="outline" className="mr-4">
+                    Skip Specialization
+                  </Button>
+                  <Button onClick={resetQuiz} variant="ghost">
+                    Start Over
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (currentScreen === "career-quiz") {
+    const questions = careerQuestionnaires[selectedCareer]
+    const currentQ = questions[careerQuestionIndex]
+    const progress = ((careerQuestionIndex + 1) / questions.length) * 100
+
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background">
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-2xl mx-auto mb-8 animate-in fade-in-0 slide-in-from-top-4 duration-700">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-2xl font-semibold">{selectedCareer} Assessment</h2>
+              <Badge variant="outline" className="text-sm animate-pulse">
+                Question {careerQuestionIndex + 1} of {questions.length}
+              </Badge>
+            </div>
+            <Progress value={progress} className="h-3 bg-muted transition-all duration-500" />
+            <p className="text-sm text-muted-foreground mt-2 text-center">{Math.round(progress)}% Complete</p>
+          </div>
+
+          <Card className="max-w-2xl mx-auto border-2 border-primary/20 shadow-lg animate-in fade-in-0 slide-in-from-bottom-4 duration-700">
+            <CardHeader className="text-center pb-4">
+              <CardTitle className="text-xl text-balance leading-relaxed">{currentQ.question}</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in-0 slide-in-from-bottom-4 duration-500 delay-400">
+                <Button
+                  onClick={() => handleCareerAnswer(true)}
+                  size="lg"
+                  className="flex-1 max-w-xs bg-primary hover:bg-primary/90 text-lg py-6 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                  Yes
+                </Button>
+                <Button
+                  onClick={() => handleCareerAnswer(false)}
+                  variant="outline"
+                  size="lg"
+                  className="flex-1 max-w-xs border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg py-6 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                  No
+                </Button>
+              </div>
+
+              <Button
+                onClick={() => setCurrentScreen("career-selection")}
+                variant="ghost"
+                className="mt-6 text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105"
+              >
+                Back to Selection
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    )
+  }
+
+  if (currentScreen === "career-roadmap") {
+    const roadmap = careerRoadmaps[selectedCareer]
+    const maxScore = careerQuestionnaires[selectedCareer].reduce((sum, q) => sum + q.weight, 0)
+    const scorePercentage = (careerScore / maxScore) * 100
+    const suitabilityLevel =
+      scorePercentage >= 80
+        ? "Excellent"
+        : scorePercentage >= 60
+          ? "Good"
+          : scorePercentage >= 40
+            ? "Fair"
+            : "Consider Other Options"
+
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background">
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-7xl mx-auto">
+            {/* Enhanced Header */}
+            <Card className="border-2 border-primary/20 shadow-xl mb-8 animate-in fade-in-0 slide-in-from-bottom-8 duration-1000 bg-gradient-to-r from-primary/5 to-accent/5">
+              <CardHeader className="text-center pb-8">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center mx-auto mb-6 animate-in zoom-in-0 duration-700 delay-200 shadow-lg">
+                  {selectedCareer === "Data Analyst" && <Calculator className="w-12 h-12 text-white" />}
+                  {selectedCareer === "Data Scientist" && <Brain className="w-12 h-12 text-white" />}
+                  {selectedCareer === "AI Engineer" && <Code className="w-12 h-12 text-white" />}
+                </div>
+                <CardTitle className="text-4xl mb-4 animate-in fade-in-0 duration-500 delay-400 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  {selectedCareer} Career Path
+                </CardTitle>
+                <CardDescription className="text-xl text-balance animate-in fade-in-0 duration-500 delay-600 max-w-4xl mx-auto leading-relaxed">
+                  {roadmap.description}
+                </CardDescription>
+
+                {/* Enhanced Suitability Score */}
+                <div className="mt-8 p-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl animate-in fade-in-0 duration-500 delay-800 border border-primary/20">
+                  <h3 className="text-xl font-semibold mb-4">Your Career Suitability Assessment</h3>
+                  <div className="flex items-center justify-center gap-6">
+                    <Progress value={scorePercentage} className="flex-1 max-w-md h-4" />
+                    <Badge
+                      variant={scorePercentage >= 60 ? "default" : "secondary"}
+                      className="text-lg px-6 py-3 font-semibold"
+                    >
+                      {Math.round(scorePercentage)}% - {suitabilityLevel}
+                    </Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-3">
+                    Based on your responses to our specialized questionnaire
+                  </p>
+                </div>
+              </CardHeader>
+            </Card>
+
+            {/* Enhanced Overview Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+              <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 animate-in fade-in-0 slide-in-from-left-4 duration-700 delay-1000 hover:shadow-lg transition-all">
+                <div className="flex items-center gap-3 mb-3">
+                  <Clock className="w-6 h-6 text-blue-600" />
+                  <span className="font-semibold text-blue-800 text-lg">Duration</span>
+                </div>
+                <p className="text-blue-700 text-xl font-bold">{roadmap.duration}</p>
+                <p className="text-blue-600 text-sm mt-1">Intensive Learning</p>
+              </Card>
+
+              <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 border-green-200 animate-in fade-in-0 slide-in-from-left-4 duration-700 delay-1100 hover:shadow-lg transition-all">
+                <div className="flex items-center gap-3 mb-3">
+                  <DollarSign className="w-6 h-6 text-green-600" />
+                  <span className="font-semibold text-green-800 text-lg">Salary Range</span>
+                </div>
+                <p className="text-green-700 text-lg font-bold">{roadmap.averageSalary}</p>
+                <p className="text-green-600 text-sm mt-1">{roadmap.industryDemand}</p>
+              </Card>
+
+              <Card className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200 animate-in fade-in-0 slide-in-from-right-4 duration-700 delay-1200 hover:shadow-lg transition-all">
+                <div className="flex items-center gap-3 mb-3">
+                  <Brain className="w-6 h-6 text-purple-600" />
+                  <span className="font-semibold text-purple-800 text-lg">Core Skills</span>
+                </div>
+                <p className="text-purple-700 font-semibold">{roadmap.keySkills.slice(0, 2).join(", ")}</p>
+                <p className="text-purple-600 text-sm mt-1">+{roadmap.keySkills.length - 2} more skills</p>
+              </Card>
+
+              <Card className="p-6 bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200 animate-in fade-in-0 slide-in-from-right-4 duration-700 delay-1300 hover:shadow-lg transition-all">
+                <div className="flex items-center gap-3 mb-3">
+                  <Users className="w-6 h-6 text-orange-600" />
+                  <span className="font-semibold text-orange-800 text-lg">Career Paths</span>
+                </div>
+                <p className="text-orange-700 text-xl font-bold">{roadmap.careerPaths.length}+</p>
+                <p className="text-orange-600 text-sm mt-1">Career Opportunities</p>
+              </Card>
+            </div>
+
+            {/* New: Daily Work & Industry Applications */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+              <Card className="p-8 animate-in fade-in-0 slide-in-from-left-8 duration-700 delay-1400 bg-gradient-to-br from-slate-50 to-slate-100">
+                <h4 className="font-semibold text-2xl mb-6 flex items-center gap-3">
+                  <Briefcase className="w-7 h-7 text-primary" />
+                  What You'll Do Daily
+                </h4>
+                <div className="space-y-4">
+                  {roadmap.dailyTasks.map((task, index) => (
+                    <div key={index} className="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm">
+                      <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-primary font-semibold text-xs">{index + 1}</span>
+                      </div>
+                      <p className="text-slate-700 font-medium">{task}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 p-4 bg-primary/10 rounded-lg">
+                  <p className="text-sm text-primary font-semibold">Work Environment: {roadmap.workEnvironment}</p>
+                </div>
+              </Card>
+
+              <Card className="p-8 animate-in fade-in-0 slide-in-from-right-8 duration-700 delay-1500 bg-gradient-to-br from-indigo-50 to-indigo-100">
+                <h4 className="font-semibold text-2xl mb-6 flex items-center gap-3">
+                  <Building className="w-7 h-7 text-primary" />
+                  Industry Applications
+                </h4>
+                <div className="space-y-4">
+                  {roadmap.industryApplications.map((application, index) => (
+                    <div key={index} className="p-4 bg-white rounded-lg shadow-sm border-l-4 border-l-indigo-400">
+                      <p className="text-indigo-800 font-semibold text-sm">{application}</p>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </div>
+
+            {/* Enhanced Skills & Career Paths */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+              <Card className="p-8 animate-in fade-in-0 slide-in-from-left-8 duration-700 delay-1600">
+                <h4 className="font-semibold text-2xl mb-6 flex items-center gap-3">
+                  <Users className="w-7 h-7 text-primary" />
+                  Career Opportunities
+                </h4>
+                <div className="grid grid-cols-1 gap-3">
+                  {roadmap.careerPaths.map((career, index) => (
+                    <div
+                      key={index}
+                      className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/20 hover:shadow-md transition-all"
+                    >
+                      <p className="font-semibold text-primary">{career}</p>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
+              <Card className="p-8 animate-in fade-in-0 slide-in-from-right-8 duration-700 delay-1700">
+                <h4 className="font-semibold text-2xl mb-6 flex items-center gap-3">
+                  <Brain className="w-7 h-7 text-primary" />
+                  Essential Skills
+                </h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {roadmap.keySkills.map((skill, index) => (
+                    <Badge key={index} variant="outline" className="p-3 text-center justify-center font-medium">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </Card>
+            </div>
+
+            {/* New: Learning Resources & Certifications */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+              <Card className="p-8 animate-in fade-in-0 slide-in-from-left-8 duration-700 delay-1800">
+                <h4 className="font-semibold text-2xl mb-6 flex items-center gap-3">
+                  <BookOpen className="w-7 h-7 text-primary" />
+                  Learning Resources
+                </h4>
+                <div className="space-y-6">
+                  <div>
+                    <h5 className="font-semibold text-lg mb-3 text-green-700">Free Resources</h5>
+                    <div className="space-y-2">
+                      {roadmap.learningResources.free.map((resource, index) => (
+                        <div key={index} className="p-3 bg-green-50 rounded-lg border border-green-200">
+                          <p className="text-green-800 font-medium">{resource}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-lg mb-3 text-blue-700">Premium Courses</h5>
+                    <div className="space-y-2">
+                      {roadmap.learningResources.paid.map((resource, index) => (
+                        <div key={index} className="p-3 bg-blue-50 rounded-lg border border-blue-200">
+                          <p className="text-blue-800 font-medium">{resource}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-8 animate-in fade-in-0 slide-in-from-right-8 duration-700 delay-1900">
+                <h4 className="font-semibold text-2xl mb-6 flex items-center gap-3">
+                  <Award className="w-7 h-7 text-primary" />
+                  Industry Certifications
+                </h4>
+                <div className="space-y-4">
+                  {roadmap.certifications.map((cert, index) => (
+                    <div
+                      key={index}
+                      className="p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg border border-yellow-200 hover:shadow-md transition-all"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Award className="w-5 h-5 text-yellow-600" />
+                        <p className="font-semibold text-yellow-800">{cert}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </div>
+
+            {/* Enhanced Learning Roadmap */}
+            <Card className="p-8 mb-10 animate-in fade-in-0 slide-in-from-bottom-8 duration-700 delay-2000">
+              <h4 className="font-semibold text-3xl mb-8 flex items-center gap-3">
+                <MapPin className="w-8 h-8 text-primary" />
+                Complete Learning Roadmap
+              </h4>
+              <div className="space-y-6">
+                {roadmap.roadmap.weeks.map((week, index) => (
+                  <Card
+                    key={index}
+                    className="p-6 border-l-4 border-l-primary/50 hover:border-l-primary transition-all duration-300 hover:shadow-lg bg-gradient-to-r from-primary/2 to-accent/2"
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <h5 className="font-semibold text-xl text-primary">{week.title}</h5>
+                      {week.deliverables && (
+                        <Badge variant="secondary" className="ml-4">
+                          {week.deliverables.length} Deliverables
+                        </Badge>
+                      )}
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <div>
+                        <h6 className="font-medium text-sm text-muted-foreground mb-2">TOPICS TO LEARN</h6>
+                        <div className="flex flex-wrap gap-2">
+                          {week.topics.map((topic, topicIndex) => (
+                            <Badge key={topicIndex} variant="outline" className="text-xs">
+                              {topic}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      {week.deliverables && (
+                        <div>
+                          <h6 className="font-medium text-sm text-muted-foreground mb-2">DELIVERABLES</h6>
+                          <div className="space-y-1">
+                            {week.deliverables.map((deliverable, delIndex) => (
+                              <div key={delIndex} className="flex items-center gap-2">
+                                <CheckCircle className="w-3 h-3 text-green-600" />
+                                <span className="text-xs text-slate-600">{deliverable}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </Card>
+
+            {/* Enhanced Projects Section */}
+            <Card className="p-8 mb-10 animate-in fade-in-0 slide-in-from-bottom-8 duration-700 delay-2100">
+              <h4 className="font-semibold text-3xl mb-8 flex items-center gap-3">
+                <Wrench className="w-8 h-8 text-primary" />
+                Portfolio Projects You'll Build
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {roadmap.roadmap.projects.map((project, index) => (
+                  <Card
+                    key={index}
+                    className="p-6 bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/20 hover:shadow-lg transition-all duration-300 hover:scale-105"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold text-sm">{index + 1}</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-lg mb-2">{project}</p>
+                        <Badge variant="secondary" className="text-xs">
+                          Portfolio Project
+                        </Badge>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </Card>
+
+            {/* Enhanced Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-in fade-in-0 slide-in-from-bottom-4 duration-700 delay-2200">
+              <Button
+                onClick={() => setCurrentScreen("career-selection")}
+                variant="outline"
+                size="lg"
+                className="transition-all duration-300 hover:scale-105 px-8 py-4 text-lg"
+              >
+                <ArrowLeft className="w-5 h-5 mr-2" />
+                Explore Other Careers
+              </Button>
+              <Button
+                onClick={resetQuiz}
+                size="lg"
+                className="transition-all duration-300 hover:scale-105 px-8 py-4 text-lg bg-gradient-to-r from-primary to-accent"
+              >
+                <RotateCcw className="w-5 h-5 mr-2" />
+                Start New Assessment
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   if (currentScreen === "welcome") {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background">
@@ -775,7 +1827,7 @@ export default function EduAdvisor() {
           </div>
 
           {/* Career Fields Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 mb-12">
             {careerFields.map((field, index) => (
               <Card
                 key={index}
